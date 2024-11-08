@@ -1,18 +1,21 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevents the form from submitting the default way
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    // Get the input values from the form
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    // Retrieve the stored user data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    // Fetch the existing users from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Validate the login
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
-        alert('Login successful!');
-        window.location.href = 'index.html';  // Redirect to the main page after successful login
+    // Check if the user exists and the password matches
+    const user = users.find(user => user.email === email && user.password === password);
+
+    if (user) {
+        // User found, login successful
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "index.html";  // Redirect to main page
     } else {
-        alert('Invalid email or password. Please try again.');
+        // User not found, display error message
+        alert("Invalid credentials. Please try again or sign up.");
     }
 });
