@@ -1,16 +1,49 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.restaurant {
     margin: 20px;
 }
 
-.order-btn {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px;
+h1 {
+    color: #4CAF50;
+    text-align: center;
+}
+
+.restaurant {
+    margin-bottom: 20px;
+}
+
+.restaurant h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.restaurant ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.restaurant li {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#orderList {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+#orderList li {
+    margin: 5px 0;
 }
