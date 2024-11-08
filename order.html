@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Successful</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Order Successful!</h1>
-    <p>You have successfully ordered: <span id="food-item"></span></p>
-    <a href="index.html">Go back to menu</a>
+
+    <h1>Your Order is Successful!</h1>
+    <h3>You ordered:</h3>
+    <ul id="orderList"></ul>
 
     <script>
-        document.getElementById('food-item').textContent = localStorage.getItem('foodItem');
+        window.onload = function() {
+            let orderItems = JSON.parse(localStorage.getItem("orderItems"));
+            let orderList = document.getElementById("orderList");
+
+            if (orderItems && orderItems.length > 0) {
+                orderItems.forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = item;
+                    orderList.appendChild(li);
+                });
+            } else {
+                orderList.innerHTML = "No items ordered.";
+            }
+        };
     </script>
+    
 </body>
 </html>
