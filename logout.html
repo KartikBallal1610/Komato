@@ -7,15 +7,12 @@
 </head>
 <body>
 
-    <h1>You have been logged out</h1>
-    <button onclick="logoutUser()">Logout</button>
+    <h1>You have been logged out!</h1>
+    <p>Click <a href="login.html">here</a> to log in again.</p>
 
     <script>
-        function logoutUser() {
-            localStorage.removeItem("isLoggedIn");  // Remove login status
-            window.location.href = "login.html";  // Redirect to login page
-        }
+        localStorage.removeItem("loggedIn");
+        window.location.href = "login.html";  // Redirect to login page after logging out
     </script>
-
 </body>
 </html>
