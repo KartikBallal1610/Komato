@@ -1,25 +1,26 @@
-document.getElementById('signupForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevents the form from submitting in the usual way
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    // Get the input values from the form
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    // Check if email and password are provided
-    if (email && password) {
-        // Create a user object
-        const user = {
-            email: email,
-            password: password
-        };
+    // Fetch the existing users from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Save user data to localStorage
-        localStorage.setItem('user', JSON.stringify(user));
-
-        // Redirect to the login page after successful signup
-        alert('Signup successful!');
-        window.location.href = 'login.html'; // Redirect to login page
+    // Check if the user already exists
+    if (users.find(user => user.email === email)) {
+        alert("User already exists. Please login.");
+        window.location.href = "login.html";  // Redirect to login page
     } else {
-        alert('Please fill out both fields.');
+        // Create new user and save to localStorage
+        const newUser = { email, password };
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // Store the logged-in user
+        localStorage.setItem("user", JSON.stringify(newUser));
+        
+        alert("Sign up successful! Redirecting to homepage...");
+        window.location.href = "index.html";  // Redirect to main page
     }
 });
