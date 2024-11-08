@@ -5,7 +5,7 @@ function orderFood() {
     // Burger Singh items
     let burgerItems = document.querySelectorAll('input[name="burgerSinghItem"]:checked');
     burgerItems.forEach(item => {
-        selectedItems.push(item.value);
+        selectedItems.push(item.value); //i hate github
     });
 
     // Coffee Ka Khauf items
