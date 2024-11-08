@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cwiggy</title>
+    <title>Food Delivery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Food Delivery Service</h1>
-    <div class="restaurant" id="restaurant1">
-        <h2>Sardarbucks: Coffee with Patiala Shahi</h2>
+
+    <h1>Welcome to Food Delivery</h1>
+
+    <div class="restaurant">
+        <h2>Burger Singh</h2>
         <ul>
-            <li><button class="order-btn">Pizza</button></li>
-            <li><button class="order-btn">Burger</button></li>
-            <li><button class="order-btn">Pasta</button></li>
+            <li><input type="checkbox" id="item1" name="burgerSinghItem" value="Burger Singh Classic Burger"> Burger Singh Classic Burger</li>
+            <li><input type="checkbox" id="item2" name="burgerSinghItem" value="Paneer Tikka Burger"> Paneer Tikka Burger</li>
+            <li><input type="checkbox" id="item3" name="burgerSinghItem" value="Fries"> Fries</li>
         </ul>
     </div>
-    <div class="restaurant" id="restaurant2">
-        <h2>पठान का अड्डा</h2>
-        <ul>
-            <li><button class="order-btn">Sushi</button></li>
-            <li><button class="order-btn">Ramen</button></li>
-            <li><button class="order-btn">Tempura</button></li>
-        </ul>
-    </div>
-    <!-- Repeat for other restaurants -->
-    <script src="script.js"></script>
+
+    <button onclick="orderFood()">Order</button>
+
+    <script>
+        function orderFood() {
+            let selectedItems = [];
+            let items = document.querySelectorAll('input[name="burgerSinghItem"]:checked');
+            items.forEach(item => {
+                selectedItems.push(item.value);
+            });
+
+            if (selectedItems.length > 0) {
+                localStorage.setItem("orderItems", JSON.stringify(selectedItems));
+                window.location.href = "order-success.html";
+            } else {
+                alert("Please select at least one item.");
+            }
+        }
+    </script>
+    
 </body>
 </html>
