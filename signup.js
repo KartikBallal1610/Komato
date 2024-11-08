@@ -5,7 +5,7 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
     let password = document.getElementById("newPassword").value;
 
     localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
+    localStorage.setItem("password", password); // band karde apni site 
 
     alert("Sign up successful! Please log in.");
     window.location.href = "login.html";  // Redirect to login page
