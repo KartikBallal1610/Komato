@@ -1,7 +1,7 @@
 // Function to handle food ordering
 function orderFood() {
     let selectedItems = [];
-
+    
     // Burger Singh items
     let burgerItems = document.querySelectorAll('input[name="burgerSinghItem"]:checked');
     burgerItems.forEach(item => {
