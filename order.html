@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
+    <title>Order Successful</title>
 </head>
 <body>
-    <h1>Order Successful!</h1>
-    <h3>You have successfully placed your order:</h3>
-    <ul id="orderList"></ul>
 
-    <br>
-    <button onclick="window.location.href='index.html'">Back to Home</button>
+    <h1>Your Order is Successful!</h1>
+    <h3>You ordered:</h3>
+    <ul id="orderList"></ul>
 
     <script>
         window.onload = function() {
@@ -25,12 +23,10 @@
                     orderList.appendChild(li);
                 });
             } else {
-                orderList.innerHTML = "<li>No items ordered.</li>";
+                orderList.innerHTML = "No items ordered.";
             }
-
-            // Clear the order from localStorage after displaying
-            localStorage.removeItem("orderItems");
         };
     </script>
+    
 </body>
 </html>
